@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, View } from 'react-native';
+import { Alert, Keyboard, StyleSheet, TextInput, View } from 'react-native';
 import Button from './Button';
 
 const AddTodo = ({ addTodoListener }) => {
 
     const [todo, setTodo] = useState('');
+
+    const onClicked = () => {
+        if (todo.length >= 3) {
+            Keyboard.dismiss();
+            addTodoListener(todo);
+            setTodo('')
+        } else {
+            Alert.alert('Warning!', 'Todo must contain atleast 3 characters.');
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -21,10 +31,7 @@ const AddTodo = ({ addTodoListener }) => {
             <View style={styles.button}>
                 <Button
                     title='Add Todo'
-                    onClick={() => {
-                        addTodoListener(todo);
-                        setTodo('')
-                    }}
+                    onClick={onClicked}
                 // backgroundStyle={{ backgroundColor: 'black' }}
                 // textStyle={{ color: 'red' }}
                 />
