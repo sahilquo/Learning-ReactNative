@@ -1,20 +1,24 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
 const TodoItem = ({ item, pressHandler }) => {
     return (
-        <TouchableOpacity
-            style={styles.container}
-            onPress={() => pressHandler(item)}
-        >
+        <View style={styles.container} >
             <Text style={styles.item}>{item.value}</Text>
-        </TouchableOpacity>
+            <TouchableOpacity onPress={() => pressHandler(item)}>
+                <Icon name='delete' size={24} />
+            </TouchableOpacity>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         padding: 16,
         marginHorizontal: 16,
         marginVertical: 8,

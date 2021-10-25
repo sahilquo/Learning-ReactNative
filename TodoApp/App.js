@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, FlatList, Text } from 'react-native';
 import AddTodo from './components/AddTodo';
+import FlexSample from './components/FlexSample';
 import Header from './components/Header';
 import TodoItem from './components/TodoItem';
 
@@ -29,6 +30,10 @@ const App = () => {
     })
   }
 
+  // return (
+  //   <FlexSample />
+  // );
+
   return (
     <View style={styles.container}>
       <Header />
@@ -52,13 +57,14 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
   },
   content: {
+    flex: 1,
     marginTop: 8
   },
   list: {
-    marginTop: 8
+    flex: 1,
+    marginVertical: 8,
   }
 });
 
