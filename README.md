@@ -30,3 +30,12 @@
     ```
   3. Run this command
   `npx react-native link`
+  
+ * #### Install React Navigation Library ([Reference](https://reactnavigation.org/docs/getting-started))
+  `npm install @react-navigation/native`
+  
+  `npm install react-native-screens react-native-safe-area-context`
+  
+  React Navigation - Stack
+  `npm install @react-navigation/native-stack`
+
