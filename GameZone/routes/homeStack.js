@@ -10,40 +10,35 @@ const Stack = createNativeStackNavigator();
 
 const homeStack = () => {
     return (
-        <NavigationContainer>
-            <Stack.Navigator
-                screenOptions={{
+        <Stack.Navigator
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: '#f4511e'
+                },
+                headerTintColor: '#fff'
+            }}>
+            <Stack.Screen
+                name="Home"
+                component={Home}
+                options={{
+                    title: 'My Home',
                     headerStyle: {
                         backgroundColor: '#f4511e'
                     },
-                    headerTintColor: '#fff'
-                }}>
-                <Stack.Screen
-                    name="Home"
-                    component={Home}
-                    options={{
-                        title: 'My Home',
-                        headerStyle: {
-                            backgroundColor: '#f4511e'
-                        },
-                        headerTintColor: '#fff',
-                        headerTitleAlign: 'center',
-                        headerTitleStyle: {
-                            fontWeight: 'bold'
-                        }
-                    }} />
-                <Stack.Screen
-                    name="ReviewDetail"
-                    component={ReviewDetail}
-                    options={({ route }) => ({
-                        title: route.params.title,
-                        headerTitle: () => <HeaderTitle />
-                    })} />
-                <Stack.Screen
-                    name="About"
-                    component={About} />
-            </Stack.Navigator>
-        </NavigationContainer>
+                    headerTintColor: '#fff',
+                    headerTitleAlign: 'center',
+                    headerTitleStyle: {
+                        fontWeight: 'bold'
+                    }
+                }} />
+            <Stack.Screen
+                name="ReviewDetail"
+                component={ReviewDetail}
+                options={({ route }) => ({
+                    title: route.params.title,
+                    headerTitle: () => <HeaderTitle />
+                })} />
+        </Stack.Navigator>
     );
 };
 export default homeStack;

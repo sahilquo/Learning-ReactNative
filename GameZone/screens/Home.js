@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import Card from '../components/Card';
 import { globalStyles } from '../styles/global';
 
 const ReviewItem = ({ item, onReviewClicked }) => {
     return (
         <TouchableOpacity onPress={() => onReviewClicked(item)}>
-            <Text style={globalStyles.boldText}>{item.title}</Text>
+            <Card>
+                <Text style={globalStyles.boldText}>{item.title}</Text>
+            </Card>
         </TouchableOpacity>
     );
 }
@@ -23,7 +26,7 @@ const Home = ({ navigation }) => {
     }
 
     return (
-        <View style={globalStyles.container}>
+        <View style={[globalStyles.container, styles.container]}>
             <View style={styles.list}>
                 <FlatList
                     data={reviews}
@@ -39,8 +42,11 @@ const Home = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        backgroundColor: '#fff'
+    },
     list: {
-        backgroundColor: 'red'
+        //  backgroundColor: 'red'
     }
 })
 
