@@ -3,29 +3,45 @@ import { Button, Image, StyleSheet, Text, View } from 'react-native';
 import { globalStyles } from '../styles/global';
 import Card from '../components/Card';
 import { ratingImages } from '../styles/global';
+import Header from '../components/Header';
 
 const ReviewDetail = ({ route, navigation }) => {
     const { title, body, rating } = route.params;
+
+    const onBackPressed = () => {
+        navigation.navigate('Home');
+    };
+
     return (
         <View style={[globalStyles.container, styles.container]}>
-            <Card>
-                <Text style={globalStyles.boldText}>{title}</Text>
-                <Text style={globalStyles.normalText}>{body}</Text>
-                <View style={styles.rating}>
-                    <Text style={globalStyles.normalText}>GameZone Rating:</Text>
-                    <Image source={ratingImages.ratings[rating]} />
-                </View>
+            <Header
+                title='Review Detail'
+                navigation={navigation}
+                showBackButton={true}
+                onBackPressed={onBackPressed} />
+            <View style={styles.card}>
+                <Card>
+                    <Text style={globalStyles.boldText}>{title}</Text>
+                    <Text style={globalStyles.normalText}>{body}</Text>
+                    <View style={styles.rating}>
+                        <Text style={globalStyles.normalText}>GameZone Rating:</Text>
+                        <Image source={ratingImages.ratings[rating]} />
+                    </View>
 
-                {/* <Button
+                    {/* <Button
                     title='Change'
                     onPress={() => navigation.setOptions({ title: 'Hello' })} /> */}
-            </Card>
+                </Card>
+            </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: '#fff',
+    },
+    card: {
         paddingVertical: 8,
         marginHorizontal: 4
     },

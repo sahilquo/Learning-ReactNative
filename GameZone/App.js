@@ -1,9 +1,12 @@
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import Navigator from './routes/drawer';
+import Navigator from './routes/StackNavigator';
 
 const App = () => {
   return (
-    <Navigator />
+    <NavigationContainer>
+      <Navigator />
+    </NavigationContainer>
   );
 };
 
